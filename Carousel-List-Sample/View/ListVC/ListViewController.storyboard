@@ -17,10 +17,25 @@
                     <view key="view" contentMode="scaleToFill" id="LOD-MJ-Uxe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="adR-V9-s3j">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="w7R-0G-zVg" firstAttribute="trailing" secondItem="adR-V9-s3j" secondAttribute="trailing" id="4fR-cQ-fjO"/>
+                            <constraint firstAttribute="bottom" secondItem="adR-V9-s3j" secondAttribute="bottom" id="4ic-yC-KbZ"/>
+                            <constraint firstItem="adR-V9-s3j" firstAttribute="leading" secondItem="w7R-0G-zVg" secondAttribute="leading" id="8c2-V5-o9g"/>
+                            <constraint firstItem="adR-V9-s3j" firstAttribute="top" secondItem="w7R-0G-zVg" secondAttribute="top" id="RNK-nT-FIf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="w7R-0G-zVg"/>
                     </view>
                     <navigationItem key="navigationItem" title="飲食店一覧" id="1jC-S5-KxR"/>
+                    <connections>
+                        <outlet property="listView" destination="adR-V9-s3j" id="EzN-tj-tJ0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQm-VD-RNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

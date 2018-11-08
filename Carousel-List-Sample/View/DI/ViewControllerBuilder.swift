@@ -11,7 +11,7 @@ import UIKit
 final class ViewControllerBuilder {
     
     /// ListVC
-    static func buildFirstVC() -> ListViewController {
+    static func buildListVC() -> ListViewController {
         let vcName = "ListViewController"
         let vc = UIStoryboard(name: vcName, bundle: Bundle.main).instantiateViewController(withIdentifier: vcName) as! ListViewController
         vc.presenter = ListViewPresenter()
@@ -21,7 +21,7 @@ final class ViewControllerBuilder {
     }
     
     /// DetailVC
-    static func buildFirstVC() -> DetailViewController {
+    static func buildDetailVC() -> DetailViewController {
         let vcName = "DetailViewController"
         let vc = UIStoryboard(name: vcName, bundle: Bundle.main).instantiateViewController(withIdentifier: vcName) as! DetailViewController
         vc.presenter = DetailViewPresenter()

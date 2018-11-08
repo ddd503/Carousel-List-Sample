@@ -22,6 +22,13 @@
 		456337C52191E7D400E23C4C /* ListViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337C42191E7D400E23C4C /* ListViewDatasource.swift */; };
 		456337C72191E80F00E23C4C /* Rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337C62191E80F00E23C4C /* Rest.swift */; };
 		456337C921933CB300E23C4C /* ListViewDatasourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337C821933CB300E23C4C /* ListViewDatasourceTest.swift */; };
+		456337CC2193469000E23C4C /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337CB2193469000E23C4C /* AlertHelper.swift */; };
+		456337D12194914000E23C4C /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337CF2194914000E23C4C /* ListViewCell.swift */; };
+		456337D22194914000E23C4C /* ListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456337D02194914000E23C4C /* ListViewCell.xib */; };
+		456337D5219491FE00E23C4C /* CarouCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337D3219491FE00E23C4C /* CarouCell.swift */; };
+		456337D6219491FE00E23C4C /* CarouCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456337D4219491FE00E23C4C /* CarouCell.xib */; };
+		456337D921949C2A00E23C4C /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337D721949C2A00E23C4C /* TitleHeaderView.swift */; };
+		456337DA21949C2A00E23C4C /* TitleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456337D821949C2A00E23C4C /* TitleHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +61,13 @@
 		456337C42191E7D400E23C4C /* ListViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewDatasource.swift; sourceTree = "<group>"; };
 		456337C62191E80F00E23C4C /* Rest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rest.swift; sourceTree = "<group>"; };
 		456337C821933CB300E23C4C /* ListViewDatasourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewDatasourceTest.swift; sourceTree = "<group>"; };
+		456337CB2193469000E23C4C /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		456337CF2194914000E23C4C /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
+		456337D02194914000E23C4C /* ListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewCell.xib; sourceTree = "<group>"; };
+		456337D3219491FE00E23C4C /* CarouCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouCell.swift; sourceTree = "<group>"; };
+		456337D4219491FE00E23C4C /* CarouCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouCell.xib; sourceTree = "<group>"; };
+		456337D721949C2A00E23C4C /* TitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
+		456337D821949C2A00E23C4C /* TitleHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +162,7 @@
 				456337AD2191D39000E23C4C /* DI */,
 				456337AE2191E46B00E23C4C /* ListVC */,
 				456337AF2191E47900E23C4C /* DetailVC */,
+				456337CA2193466F00E23C4C /* Helper */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,6 +187,8 @@
 		456337AE2191E46B00E23C4C /* ListVC */ = {
 			isa = PBXGroup;
 			children = (
+				456337CD2193471000E23C4C /* TableViewCell */,
+				456337CE2193471E00E23C4C /* CollectionViewCell */,
 				456337B42191E57400E23C4C /* ListViewController.swift */,
 				456337B62191E57C00E23C4C /* ListViewController.storyboard */,
 			);
@@ -217,6 +234,34 @@
 				456337C42191E7D400E23C4C /* ListViewDatasource.swift */,
 			);
 			path = DAO;
+			sourceTree = "<group>";
+		};
+		456337CA2193466F00E23C4C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				456337CB2193469000E23C4C /* AlertHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		456337CD2193471000E23C4C /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				456337CF2194914000E23C4C /* ListViewCell.swift */,
+				456337D02194914000E23C4C /* ListViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		456337CE2193471E00E23C4C /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				456337D3219491FE00E23C4C /* CarouCell.swift */,
+				456337D4219491FE00E23C4C /* CarouCell.xib */,
+				456337D721949C2A00E23C4C /* TitleHeaderView.swift */,
+				456337D821949C2A00E23C4C /* TitleHeaderView.xib */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +347,9 @@
 			files = (
 				456337912191D0CF00E23C4C /* LaunchScreen.storyboard in Resources */,
 				4563378E2191D0CF00E23C4C /* Assets.xcassets in Resources */,
+				456337DA21949C2A00E23C4C /* TitleHeaderView.xib in Resources */,
+				456337D22194914000E23C4C /* ListViewCell.xib in Resources */,
+				456337D6219491FE00E23C4C /* CarouCell.xib in Resources */,
 				456337B92191E59700E23C4C /* DetailViewController.storyboard in Resources */,
 				456337AC2191D31300E23C4C /* rest.json in Resources */,
 				456337B72191E57C00E23C4C /* ListViewController.storyboard in Resources */,
@@ -322,14 +370,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				456337D12194914000E23C4C /* ListViewCell.swift in Sources */,
 				456337B32191E52700E23C4C /* ViewControllerBuilder.swift in Sources */,
 				456337BD2191E6A600E23C4C /* BaseInterface.swift in Sources */,
 				456337872191D0CD00E23C4C /* AppDelegate.swift in Sources */,
+				456337D921949C2A00E23C4C /* TitleHeaderView.swift in Sources */,
 				456337C72191E80F00E23C4C /* Rest.swift in Sources */,
 				456337BF2191E6D600E23C4C /* ListViewPresenter.swift in Sources */,
 				456337B52191E57400E23C4C /* ListViewController.swift in Sources */,
 				456337C52191E7D400E23C4C /* ListViewDatasource.swift in Sources */,
+				456337D5219491FE00E23C4C /* CarouCell.swift in Sources */,
 				456337BB2191E5A200E23C4C /* DetailViewController.swift in Sources */,
+				456337CC2193469000E23C4C /* AlertHelper.swift in Sources */,
 				456337C12191E6E100E23C4C /* DetailViewPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

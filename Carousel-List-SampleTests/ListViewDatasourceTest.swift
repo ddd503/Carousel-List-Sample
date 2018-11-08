@@ -17,7 +17,7 @@ class ListViewDatasourceTest: XCTestCase {
         expectation = self.expectation(description: "get&parse test")
         let datasource = ListViewDatasource()
         datasource.interface = self
-        datasource.requestDatasource(localFileName: "rest")
+        datasource.getDatasource(localFileName: "rest")
         self.waitForExpectations(timeout: 10, handler: nil)
     }
 
@@ -25,7 +25,7 @@ class ListViewDatasourceTest: XCTestCase {
         expectation = self.expectation(description: "get&parse fuiler handle test")
         let datasource = ListViewDatasource()
         datasource.interface = self
-        datasource.requestDatasource(localFileName: "test")
+        datasource.getDatasource(localFileName: "test")
         self.waitForExpectations(timeout: 10, handler: nil)
     }
 

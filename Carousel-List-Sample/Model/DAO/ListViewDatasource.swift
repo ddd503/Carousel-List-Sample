@@ -17,7 +17,7 @@ final class ListViewDatasource: BaseInterface {
     
     weak var interface: ListViewDatasourceInterface?
     
-    func requestDatasource(localFileName: String) {
+    func getDatasource(localFileName: String) {
         do {
             let jsonData = try Data(contentsOf: URL(fileURLWithPath: getLocalJsonFilePath(fileName: localFileName)))
             let decoder = JSONDecoder()
