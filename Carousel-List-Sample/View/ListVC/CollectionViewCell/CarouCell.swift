@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class CarouCell: UICollectionViewCell {
 
@@ -23,8 +24,11 @@ final class CarouCell: UICollectionViewCell {
     
     func setCellData(data: Shop) {
         shopNameLabel.text = data.name
-        // 現状仮で表示
-        shopImageView.image = UIImage(named: "DefaultImage")
+        if let imageUrl = URL(string: data.shop_image1) {
+            shopImageView.kf.setImage(with: imageUrl)
+        } else {
+            shopImageView.image = UIImage(named: "DefaultImage")
+        }
     }
 
 }

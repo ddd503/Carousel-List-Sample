@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45306718219733E100E89657 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45306717219733E100E89657 /* Kingfisher.framework */; };
 		456337872191D0CD00E23C4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337862191D0CD00E23C4C /* AppDelegate.swift */; };
 		4563378E2191D0CF00E23C4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4563378D2191D0CF00E23C4C /* Assets.xcassets */; };
 		456337912191D0CF00E23C4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4563378F2191D0CF00E23C4C /* LaunchScreen.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45306717219733E100E89657 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		456337832191D0CD00E23C4C /* Carousel-List-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Carousel-List-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		456337862191D0CD00E23C4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4563378D2191D0CF00E23C4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45306718219733E100E89657 /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,12 +87,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45306716219733E100E89657 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45306717219733E100E89657 /* Kingfisher.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4563377A2191D0CD00E23C4C = {
 			isa = PBXGroup;
 			children = (
 				456337852191D0CD00E23C4C /* Carousel-List-Sample */,
 				4563379A2191D0CF00E23C4C /* Carousel-List-SampleTests */,
 				456337842191D0CD00E23C4C /* Products */,
+				45306716219733E100E89657 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,6 +280,7 @@
 				4563377F2191D0CD00E23C4C /* Sources */,
 				456337802191D0CD00E23C4C /* Frameworks */,
 				456337812191D0CD00E23C4C /* Resources */,
+				45306719219733EA00E89657 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -357,6 +370,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45306719219733EA00E89657 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4563377F2191D0CD00E23C4C /* Sources */ = {
@@ -530,6 +564,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVR5UQEHBD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Carousel-List-Sample/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -548,6 +586,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVR5UQEHBD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Carousel-List-Sample/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
