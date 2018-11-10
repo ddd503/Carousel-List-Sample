@@ -9,7 +9,8 @@
 import UIKit
 
 final class ListViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var carouselListView: UICollectionView!
     
     static var identifier: String {
@@ -19,20 +20,20 @@ final class ListViewCell: UITableViewCell {
     static func nib() -> UINib {
         return UINib(nibName: identifier, bundle: nil)
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         carouselListView.register(CarouCell.nib(), forCellWithReuseIdentifier: CarouCell.identifier)
         carouselListView.showsHorizontalScrollIndicator = false
     }
-
-    func setDatasource(_ datasource:
-        UICollectionViewDelegate & UICollectionViewDataSource) {
+    
+    func setViewData(datasource:
+        UICollectionViewDelegate & UICollectionViewDataSource, categoryTitle: String, tag: Int) {
         carouselListView.delegate = datasource
         carouselListView.dataSource = datasource
-        DispatchQueue.main.async {
-            self.carouselListView.reloadData()
-        }
+        categoryLabel.text = categoryTitle
+        carouselListView.tag = tag
+        carouselListView.reloadData()
     }
     
 }

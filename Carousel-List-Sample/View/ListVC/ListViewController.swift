@@ -52,7 +52,7 @@ extension ListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListViewCell.identifier, for: indexPath) as? ListViewCell else {
             fatalError("cell is nil")
         }
-        cell.setDatasource(self)
+        cell.setViewData(datasource: self, categoryTitle: presenter.rests[indexPath.row].title, tag: indexPath.row)
         return cell
     }
     
@@ -76,7 +76,7 @@ extension ListViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CarouCell.identifier, for: indexPath) as? CarouCell else {
             fatalError("cell is nil")
         }
-        cell.setCellData(data: presenter.rests[indexPath.section].shops[indexPath.row])
+        cell.setCellData(data: presenter.rests[collectionView.tag].shops[indexPath.row])
         return cell
     }
     
@@ -90,14 +90,12 @@ extension ListViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: view.bounds.width / 3.5, height: collectionView.bounds.height)
     }
     
-    // categoryCell表示領域とCollectionViewの上下左右の余白を設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         let verticalInset: CGFloat = 10
         return UIEdgeInsets(top: 0, left: verticalInset, bottom: 0, right: verticalInset)
     }
     
-    // categoryCellの左右の余白の最小値を設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }

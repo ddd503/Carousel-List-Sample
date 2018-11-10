@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="BxI-f7-DnW">
-                        <rect key="frame" x="0.0" y="5" width="353" height="98.5"/>
+                        <rect key="frame" x="0.0" y="41" width="353" height="67.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zGC-GC-D5E">
                             <size key="itemSize" width="50" height="50"/>
@@ -29,17 +29,27 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yS-8g-9ip">
+                        <rect key="frame" x="10" y="10" width="343" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="BxI-f7-DnW" secondAttribute="bottom" constant="5" id="XRt-7q-Gde"/>
-                    <constraint firstItem="BxI-f7-DnW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nVr-C8-Ggx"/>
-                    <constraint firstAttribute="trailing" secondItem="BxI-f7-DnW" secondAttribute="trailing" id="oVW-Oj-zcj"/>
-                    <constraint firstItem="BxI-f7-DnW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="x6e-cb-0BH"/>
+                    <constraint firstItem="BxI-f7-DnW" firstAttribute="top" secondItem="2yS-8g-9ip" secondAttribute="bottom" constant="10" id="0uZ-gn-Oqc"/>
+                    <constraint firstAttribute="trailing" secondItem="BxI-f7-DnW" secondAttribute="trailing" id="270-eg-lPs"/>
+                    <constraint firstItem="2yS-8g-9ip" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Agq-xb-6Mf"/>
+                    <constraint firstItem="BxI-f7-DnW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="PaN-5v-U5v"/>
+                    <constraint firstAttribute="bottom" secondItem="BxI-f7-DnW" secondAttribute="bottom" id="QW5-Nv-Zha"/>
+                    <constraint firstItem="2yS-8g-9ip" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="rRF-VA-hgE"/>
+                    <constraint firstAttribute="trailing" secondItem="2yS-8g-9ip" secondAttribute="trailing" id="ttE-yW-f6v"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="carouselListView" destination="BxI-f7-DnW" id="uoz-Uj-Gcs"/>
+                <outlet property="categoryLabel" destination="2yS-8g-9ip" id="VCL-03-Jog"/>
             </connections>
             <point key="canvasLocation" x="164" y="183.05847076461771"/>
         </tableViewCell>
