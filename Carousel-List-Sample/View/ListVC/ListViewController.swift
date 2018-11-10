@@ -12,9 +12,9 @@ final class ListViewController: UIViewController {
     
     @IBOutlet weak var listView: UITableView! {
         didSet {
+            listView.delegate = self
             listView.dataSource = self
-            listView.register(UINib(nibName: ListViewCell.identifier, bundle: nil),
-                              forCellReuseIdentifier: ListViewCell.identifier)
+            listView.register(ListViewCell.nib(), forCellReuseIdentifier: ListViewCell.identifier)
             listView.tableFooterView = UIView()
         }
     }
@@ -56,6 +56,10 @@ extension ListViewController: UITableViewDataSource {
         return cell
     }
     
+}
+
+extension ListViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return view.bounds.height / 3.5
     }
@@ -63,17 +67,6 @@ extension ListViewController: UITableViewDataSource {
 }
 
 extension ListViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleHeaderView.identifier, for: indexPath) as? TitleHeaderView else {
-            fatalError("Could not find header")
-        }
-        if kind == UICollectionView.elementKindSectionHeader {
-            header.title = presenter.rests[indexPath.section].title
-            return header
-        }
-        return UICollectionReusableView()
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter.rests[section].shops.count

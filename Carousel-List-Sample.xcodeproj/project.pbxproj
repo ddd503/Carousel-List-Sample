@@ -27,8 +27,6 @@
 		456337D22194914000E23C4C /* ListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456337D02194914000E23C4C /* ListViewCell.xib */; };
 		456337D5219491FE00E23C4C /* CarouCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337D3219491FE00E23C4C /* CarouCell.swift */; };
 		456337D6219491FE00E23C4C /* CarouCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456337D4219491FE00E23C4C /* CarouCell.xib */; };
-		456337D921949C2A00E23C4C /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337D721949C2A00E23C4C /* TitleHeaderView.swift */; };
-		456337DA21949C2A00E23C4C /* TitleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456337D821949C2A00E23C4C /* TitleHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +64,6 @@
 		456337D02194914000E23C4C /* ListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewCell.xib; sourceTree = "<group>"; };
 		456337D3219491FE00E23C4C /* CarouCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouCell.swift; sourceTree = "<group>"; };
 		456337D4219491FE00E23C4C /* CarouCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouCell.xib; sourceTree = "<group>"; };
-		456337D721949C2A00E23C4C /* TitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
-		456337D821949C2A00E23C4C /* TitleHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,8 +254,6 @@
 			children = (
 				456337D3219491FE00E23C4C /* CarouCell.swift */,
 				456337D4219491FE00E23C4C /* CarouCell.xib */,
-				456337D721949C2A00E23C4C /* TitleHeaderView.swift */,
-				456337D821949C2A00E23C4C /* TitleHeaderView.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -347,7 +341,6 @@
 			files = (
 				456337912191D0CF00E23C4C /* LaunchScreen.storyboard in Resources */,
 				4563378E2191D0CF00E23C4C /* Assets.xcassets in Resources */,
-				456337DA21949C2A00E23C4C /* TitleHeaderView.xib in Resources */,
 				456337D22194914000E23C4C /* ListViewCell.xib in Resources */,
 				456337D6219491FE00E23C4C /* CarouCell.xib in Resources */,
 				456337B92191E59700E23C4C /* DetailViewController.storyboard in Resources */,
@@ -374,7 +367,6 @@
 				456337B32191E52700E23C4C /* ViewControllerBuilder.swift in Sources */,
 				456337BD2191E6A600E23C4C /* BaseInterface.swift in Sources */,
 				456337872191D0CD00E23C4C /* AppDelegate.swift in Sources */,
-				456337D921949C2A00E23C4C /* TitleHeaderView.swift in Sources */,
 				456337C72191E80F00E23C4C /* Rest.swift in Sources */,
 				456337BF2191E6D600E23C4C /* ListViewPresenter.swift in Sources */,
 				456337B52191E57400E23C4C /* ListViewController.swift in Sources */,

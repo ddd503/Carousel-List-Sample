@@ -16,12 +16,13 @@ final class ListViewCell: UITableViewCell {
         return String(describing: self)
     }
     
+    static func nib() -> UINib {
+        return UINib(nibName: identifier, bundle: nil)
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        carouselListView.register(UINib(nibName: CarouCell.identifier, bundle: nil),
-                                forCellWithReuseIdentifier: CarouCell.identifier)
-        carouselListView.register(UINib(nibName: TitleHeaderView.identifier, bundle: nil),
-                                  forCellWithReuseIdentifier: TitleHeaderView.identifier)
+        carouselListView.register(CarouCell.nib(), forCellWithReuseIdentifier: CarouCell.identifier)
         carouselListView.showsHorizontalScrollIndicator = false
     }
 

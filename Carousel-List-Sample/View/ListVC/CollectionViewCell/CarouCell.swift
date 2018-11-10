@@ -17,6 +17,10 @@ final class CarouCell: UICollectionViewCell {
         return String(describing: self)
     }
     
+    static func nib() -> UINib {
+        return UINib(nibName: identifier, bundle: nil)
+    }
+    
     func setCellData(data: Shop) {
         shopNameLabel.text = data.name
         // 現状仮で表示
