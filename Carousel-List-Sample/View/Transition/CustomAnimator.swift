@@ -43,7 +43,7 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-
+        
         let container = transitionContext.containerView
         
         guard let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from) else { return }
@@ -66,6 +66,14 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         imageView.alpha = 0
         label.alpha = 0
         
+        // 移動中下を見せたくないため
+        let whiteViewForImage = UIView(frame: objectData.imageFrame)
+        whiteViewForImage.backgroundColor = .white
+        container.addSubview(whiteViewForImage)
+        let whiteViewForLabel = UIView(frame: objectData.labelFrame)
+        whiteViewForLabel.backgroundColor = .white
+        container.addSubview(whiteViewForLabel)
+        
         let transitionImageView = UIImageView(frame: isPresenting ? objectData.imageFrame : imageView.frame)
         transitionImageView.image = objectData.image
         container.addSubview(transitionImageView)
@@ -79,24 +87,25 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                                              height: toView.frame.height) : toView.frame
         
         toView.alpha = isPresenting ? 0 : 1
-        
         toView.layoutIfNeeded()
-        
-        detailView.frame = self.isPresenting ? fromView.frame : CGRect(x: toView.frame.width,
-                                                                       y: 0,
-                                                                       width: toView.frame.width,
-                                                                       height: toView.frame.height)
-        
+        detailView.frame = self.isPresenting ? fromView.frame : toView.frame
         UIView.animate(withDuration: duration, animations: {
             transitionImageView.frame = self.isPresenting ? imageView.frame : self.objectData.imageFrame
             transitionLabel.frame = self.isPresenting ? label.frame : self.objectData.labelFrame
             detailView.alpha = self.isPresenting ? 1 : 0
-        }, completion: { (finished) in
-            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-            transitionImageView.removeFromSuperview()
-            transitionLabel.removeFromSuperview()
+            // whiteViewが遷移後画面で悪さをする問題の対応
+            if self.isPresenting {
+                whiteViewForImage.alpha = 0.3
+                whiteViewForLabel.alpha = 0.3
+            }
+        }, completion: { finished in
             imageView.alpha = 1
             label.alpha = 1
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            whiteViewForImage.removeFromSuperview()
+            whiteViewForLabel.removeFromSuperview()
+            transitionImageView.removeFromSuperview()
+            transitionLabel.removeFromSuperview()
         })
     }
 }
