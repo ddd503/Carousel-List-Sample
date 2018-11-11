@@ -25,6 +25,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ATY-3n-jcf">
                                 <rect key="frame" x="0.0" y="0.0" width="210" height="204"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="NNi-hq-HV3">
                                 <rect key="frame" x="5" y="204" width="200" height="51"/>
@@ -32,17 +38,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cD-TK-fJi">
+                                <rect key="frame" x="0.0" y="0.0" width="210" height="255"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="NNi-hq-HV3" secondAttribute="bottom" id="7Kl-Y6-W6n"/>
+                            <constraint firstItem="3cD-TK-fJi" firstAttribute="top" secondItem="y3N-Zg-4sz" secondAttribute="top" id="9MI-CH-ibe"/>
                             <constraint firstItem="ATY-3n-jcf" firstAttribute="centerX" secondItem="y3N-Zg-4sz" secondAttribute="centerX" id="DkD-l9-DVF"/>
                             <constraint firstItem="NNi-hq-HV3" firstAttribute="top" secondItem="ATY-3n-jcf" secondAttribute="bottom" id="Dlv-ZD-rlK"/>
                             <constraint firstItem="ATY-3n-jcf" firstAttribute="top" secondItem="y3N-Zg-4sz" secondAttribute="top" id="HJy-BG-Eoa"/>
+                            <constraint firstAttribute="bottom" secondItem="3cD-TK-fJi" secondAttribute="bottom" id="TZ9-yd-k1e"/>
                             <constraint firstAttribute="trailing" secondItem="NNi-hq-HV3" secondAttribute="trailing" constant="5" id="aeN-Et-Mw6"/>
+                            <constraint firstAttribute="trailing" secondItem="3cD-TK-fJi" secondAttribute="trailing" id="nnl-Ci-Eim"/>
                             <constraint firstItem="ATY-3n-jcf" firstAttribute="height" secondItem="y3N-Zg-4sz" secondAttribute="height" multiplier="0.8" id="szg-j1-hPl"/>
                             <constraint firstItem="ATY-3n-jcf" firstAttribute="width" secondItem="y3N-Zg-4sz" secondAttribute="width" id="wKx-ok-rdG"/>
                             <constraint firstItem="NNi-hq-HV3" firstAttribute="leading" secondItem="y3N-Zg-4sz" secondAttribute="leading" constant="5" id="xPR-Sg-g8n"/>
+                            <constraint firstItem="3cD-TK-fJi" firstAttribute="leading" secondItem="y3N-Zg-4sz" secondAttribute="leading" id="zcd-Xf-gaW"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -58,6 +72,7 @@
             <connections>
                 <outlet property="shopImageView" destination="ATY-3n-jcf" id="7Md-EH-VN9"/>
                 <outlet property="shopNameLabel" destination="NNi-hq-HV3" id="aZi-5g-6Ju"/>
+                <outlet property="tappedView" destination="3cD-TK-fJi" id="zNx-Ly-Rlb"/>
             </connections>
             <point key="canvasLocation" x="105.59999999999999" y="239.73013493253376"/>
         </collectionViewCell>

@@ -9,10 +9,11 @@
 import UIKit
 import Kingfisher
 
-final class CarouCell: UICollectionViewCell {
+final class CarouCell: UICollectionViewCell, TransitionType {
 
     @IBOutlet weak var shopImageView: UIImageView!
     @IBOutlet weak var shopNameLabel: UILabel!
+    @IBOutlet weak var tappedView: UIView!
     
     static var identifier: String {
         return String(describing: self)

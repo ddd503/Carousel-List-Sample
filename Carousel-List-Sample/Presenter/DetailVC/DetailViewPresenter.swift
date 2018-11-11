@@ -7,12 +7,26 @@
 //
 
 protocol DetailViewPresenterInterface: class {
-    
+    func display()
+    func dismiss()
 }
 
 final class DetailViewPresenter: BaseInterface {
     
     weak var interface: DetailViewPresenterInterface?
+    var shop = Shop()
+    
+    deinit {
+        destroyInterface()
+    }
+    
+    func setup() {
+        interface?.display()
+    }
+    
+    func didTapCloseButton() {
+        interface?.dismiss()
+    }
     
 }
 

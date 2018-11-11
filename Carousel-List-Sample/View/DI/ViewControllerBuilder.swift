@@ -21,11 +21,13 @@ final class ViewControllerBuilder {
     }
     
     /// DetailVC
-    static func buildDetailVC() -> DetailViewController {
+    static func buildDetailVC(transitioningDelegate: UIViewControllerTransitioningDelegate, shopData: Shop) -> DetailViewController {
         let vcName = "DetailViewController"
         let vc = UIStoryboard(name: vcName, bundle: Bundle.main).instantiateViewController(withIdentifier: vcName) as! DetailViewController
         vc.presenter = DetailViewPresenter()
-        vc.presenter.applyInterface(terget: vc)      
+        vc.presenter.applyInterface(terget: vc)
+        vc.presenter.shop = shopData
+        vc.transitioningDelegate = transitioningDelegate
         return vc
     }
     

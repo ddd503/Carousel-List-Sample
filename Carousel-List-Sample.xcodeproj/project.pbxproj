@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45306718219733E100E89657 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45306717219733E100E89657 /* Kingfisher.framework */; };
+		4530671C2197A8D000E89657 /* CustomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4530671B2197A8D000E89657 /* CustomAnimator.swift */; };
 		456337872191D0CD00E23C4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337862191D0CD00E23C4C /* AppDelegate.swift */; };
 		4563378E2191D0CF00E23C4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4563378D2191D0CF00E23C4C /* Assets.xcassets */; };
 		456337912191D0CF00E23C4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4563378F2191D0CF00E23C4C /* LaunchScreen.storyboard */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		45306717219733E100E89657 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		4530671B2197A8D000E89657 /* CustomAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimator.swift; sourceTree = "<group>"; };
 		456337832191D0CD00E23C4C /* Carousel-List-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Carousel-List-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		456337862191D0CD00E23C4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4563378D2191D0CF00E23C4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 				45306717219733E100E89657 /* Kingfisher.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4530671A21973D7400E89657 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				4530671B2197A8D000E89657 /* CustomAnimator.swift */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		4563377A2191D0CD00E23C4C = {
@@ -170,6 +180,7 @@
 				456337AD2191D39000E23C4C /* DI */,
 				456337AE2191E46B00E23C4C /* ListVC */,
 				456337AF2191E47900E23C4C /* DetailVC */,
+				4530671A21973D7400E89657 /* Transition */,
 				456337CA2193466F00E23C4C /* Helper */,
 			);
 			path = View;
@@ -409,6 +420,7 @@
 				456337BB2191E5A200E23C4C /* DetailViewController.swift in Sources */,
 				456337CC2193469000E23C4C /* AlertHelper.swift in Sources */,
 				456337C12191E6E100E23C4C /* DetailViewPresenter.swift in Sources */,
+				4530671C2197A8D000E89657 /* CustomAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,7 +24,7 @@ final class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.requestDatasource()
-    }
+    }   
     
 }
 
@@ -38,6 +38,10 @@ extension ListViewController: ListViewPresenterInterface {
     
     func showErrorAlert(title: String?, message: String?, action: ((UIAlertAction) -> ())?) {
         AlertHelper.showDefaultErrorAlert(title: title, message: message, action: action)
+    }
+    
+    func transitionDetailVC(shopData: Shop) {
+        present(ViewControllerBuilder.buildDetailVC(transitioningDelegate: self, shopData: shopData), animated: true)
     }
     
 }
@@ -64,6 +68,10 @@ extension ListViewController: UITableViewDelegate {
         return view.bounds.height / 3.5
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        presenter.tableViewScrollOffsetY = scrollView.contentOffset.y
+    }
+    
 }
 
 extension ListViewController: UICollectionViewDataSource {
@@ -79,7 +87,6 @@ extension ListViewController: UICollectionViewDataSource {
         cell.setCellData(data: presenter.rests[collectionView.tag].shops[indexPath.row])
         return cell
     }
-    
     
 }
 
@@ -105,7 +112,39 @@ extension ListViewController: UICollectionViewDelegateFlowLayout {
 extension ListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        // TODO: - ここはリファクタが必要
+        guard let cellLayout = collectionView.layoutAttributesForItem(at: indexPath) else { return }
+        var cellFrame = collectionView.convert(cellLayout.frame, to: collectionView.superview)
+        cellFrame.origin.y = CGFloat(Int(view.bounds.height / 3.5) * collectionView.tag) + presenter.navigationBarHeight - presenter.tableViewScrollOffsetY
+        guard let listViewCell = listView.cellForRow(at: IndexPath(row: collectionView.tag, section: 0)) as? ListViewCell,
+            let carouCell = collectionView.cellForItem(at: indexPath) as? CarouCell else { return }
+        presenter.didTapCell(listViewCell: listViewCell, carouCell: carouCell, restIndex: collectionView.tag, shopIndex: indexPath.row, cellFrame: cellFrame)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CarouCell else { return }
+        cell.tappedView.isHidden = false
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CarouCell else { return }
+        cell.tappedView.isHidden = true
+    }
+    
+}
+
+extension ListViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let objectData = presenter.tappedObjectData else { return nil }
+        return CustomAnimator(duration: 0.5, isPresenting: true, objectData: objectData)
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let objectData = presenter.tappedObjectData else { return nil }
+        return CustomAnimator(duration: 0.5, isPresenting: false, objectData: objectData)
     }
     
 }
