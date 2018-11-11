@@ -68,10 +68,6 @@ extension ListViewController: UITableViewDelegate {
         return view.bounds.height / 3.5
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        presenter.tableViewScrollOffsetY = scrollView.contentOffset.y
-    }
-    
 }
 
 extension ListViewController: UICollectionViewDataSource {
@@ -112,13 +108,8 @@ extension ListViewController: UICollectionViewDelegateFlowLayout {
 extension ListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: - ここはリファクタが必要
-        guard let cellLayout = collectionView.layoutAttributesForItem(at: indexPath) else { return }
-        var cellFrame = collectionView.convert(cellLayout.frame, to: collectionView.superview)
-        cellFrame.origin.y = CGFloat(Int(view.bounds.height / 3.5) * collectionView.tag) + presenter.navigationBarHeight - presenter.tableViewScrollOffsetY
-        guard let listViewCell = listView.cellForRow(at: IndexPath(row: collectionView.tag, section: 0)) as? ListViewCell,
-            let carouCell = collectionView.cellForItem(at: indexPath) as? CarouCell else { return }
-        presenter.didTapCell(listViewCell: listViewCell, carouCell: carouCell, restIndex: collectionView.tag, shopIndex: indexPath.row, cellFrame: cellFrame)
+        guard let carouCell = collectionView.cellForItem(at: indexPath) as? CarouCell else { return }
+        presenter.didTapCell(carouCell, restIndex: collectionView.tag, shopIndex: indexPath.row, parentView: view.superview)
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {

@@ -61,21 +61,11 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 return
         }
         
-        // 写真詳細画面のimageViewのy座標を擬似的に取得
-//        let adjustPhotoViewPositionY = ((detailView.frame.size.height - detailView.frame.size.height * AppContext.photoDetailHeightRatio) + AppContext.navigationBarHeight) / 2
-        // 写真詳細画面のimageViewのframeを擬似的に取得
-//        let adjustPhotoViewFrame = CGRect(x: 0,
-//                                          y: adjustPhotoViewPositionY,
-//                                          width: detailView.frame.size.width,
-//                                          height: detailView.frame.size.height * AppContext.photoDetailHeightRatio)
-        
-        // 遷移先のVCのViewを操作（遷移中に行き先の画像が見えないようにする、storyboardでもいい）
         imageView.image = objectData.image
         label.text = objectData.text
         imageView.alpha = 0
         label.alpha = 0
         
-        // 遷移元のimageを作って遷移Viewにのせる
         let transitionImageView = UIImageView(frame: isPresenting ? objectData.imageFrame : imageView.frame)
         transitionImageView.image = objectData.image
         container.addSubview(transitionImageView)
@@ -90,10 +80,8 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         toView.alpha = isPresenting ? 0 : 1
         
-        // viewの再配置(viewの配置を確定させておく)
         toView.layoutIfNeeded()
         
-        // 遷移中に次の画面のviewを見せる時はここもアニメーションさせる
         detailView.frame = self.isPresenting ? fromView.frame : CGRect(x: toView.frame.width,
                                                                        y: 0,
                                                                        width: toView.frame.width,
@@ -104,7 +92,6 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             transitionLabel.frame = self.isPresenting ? label.frame : self.objectData.labelFrame
             detailView.alpha = self.isPresenting ? 1 : 0
         }, completion: { (finished) in
-            // 遷移が終わったタイミングと遷移カスタムを使用するタイミングを合わせる
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             transitionImageView.removeFromSuperview()
             transitionLabel.removeFromSuperview()
