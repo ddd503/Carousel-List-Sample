@@ -92,6 +92,7 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         UIView.animate(withDuration: duration, animations: {
             transitionImageView.frame = self.isPresenting ? imageView.frame : self.objectData.imageFrame
             transitionLabel.frame = self.isPresenting ? label.frame : self.objectData.labelFrame
+            transitionLabel.font = self.isPresenting ? UIFont.boldSystemFont(ofSize: 22) : UIFont.systemFont(ofSize: 13)
             detailView.alpha = self.isPresenting ? 1 : 0
             // whiteViewが遷移後画面で悪さをする問題の対応
             if self.isPresenting {

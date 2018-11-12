@@ -24,6 +24,10 @@ final class DetailViewController: UIViewController, TransitionType {
     
     var presenter: DetailViewPresenter!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.setup()
