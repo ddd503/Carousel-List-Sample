@@ -9,12 +9,18 @@
 import UIKit
 import Kingfisher
 
-final class CarouCell: UICollectionViewCell, TransitionType {
-
-    @IBOutlet weak var shopImageView: UIImageView!
-    @IBOutlet weak var shopNameLabel: UILabel!
-    @IBOutlet weak var tappedView: UIView!
+final class CarouCell: UICollectionViewCell {
     
+    @IBOutlet weak var shopImageView: UIImageView!
+    @IBOutlet weak var tappedView: UIView!
+    @IBOutlet weak var shopNameTextView: UITextView! {
+        didSet {
+            shopNameTextView.adjustFontForListView()
+            shopNameTextView.textContainer.maximumNumberOfLines = 2
+            shopNameTextView.textContainerInset = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 0)
+            shopNameTextView.textContainer.lineBreakMode = .byTruncatingTail
+        }
+    }
     static var identifier: String {
         return String(describing: self)
     }
@@ -24,12 +30,12 @@ final class CarouCell: UICollectionViewCell, TransitionType {
     }
     
     func setCellData(data: Shop) {
-        shopNameLabel.text = data.name
+        shopNameTextView.text = data.name
         if let imageUrl = URL(string: data.shop_image1) {
             shopImageView.kf.setImage(with: imageUrl)
         } else {
             shopImageView.image = UIImage(named: "DefaultImage")
         }
     }
-
+    
 }

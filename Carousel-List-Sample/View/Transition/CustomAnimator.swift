@@ -10,12 +10,12 @@ import UIKit
 
 struct TappedObjectData {
     let imageFrame: CGRect
-    let labelFrame: CGRect
+    let textFrame: CGRect
     var image: UIImage?
     var text: String?
-    init(imageFrame: CGRect, labelFrame: CGRect, image: UIImage?, text: String?) {
+    init(imageFrame: CGRect, textFrame: CGRect, image: UIImage?, text: String?) {
         self.imageFrame = imageFrame
-        self.labelFrame = labelFrame
+        self.textFrame = textFrame
         self.image = image
         self.text = text
     }
@@ -23,7 +23,7 @@ struct TappedObjectData {
 
 protocol TransitionType {
     var shopImageView: UIImageView! { get }
-    var shopNameLabel: UILabel! { get }
+    var shopNameTextView: UITextView! { get }
 }
 
 final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
@@ -57,29 +57,31 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         guard let destinationVC = isPresenting ?
             transitionContext.viewController(forKey: .to) as? TransitionType :
             transitionContext.viewController(forKey: .from) as? TransitionType,
-            let imageView = destinationVC.shopImageView, let label = destinationVC.shopNameLabel else {
+            let imageView = destinationVC.shopImageView, let textView = destinationVC.shopNameTextView else {
                 return
         }
         
         imageView.image = objectData.image
-        label.text = objectData.text
+        textView.text = objectData.text
         imageView.alpha = 0
-        label.alpha = 0
+        textView.alpha = 0
         
         // 移動中下を見せたくないため
         let whiteViewForImage = UIView(frame: objectData.imageFrame)
         whiteViewForImage.backgroundColor = .white
         container.addSubview(whiteViewForImage)
-        let whiteViewForLabel = UIView(frame: objectData.labelFrame)
-        whiteViewForLabel.backgroundColor = .white
-        container.addSubview(whiteViewForLabel)
+        let whiteViewForText = UIView(frame: objectData.textFrame)
+        whiteViewForText.backgroundColor = .white
+        container.addSubview(whiteViewForText)
         
         let transitionImageView = UIImageView(frame: isPresenting ? objectData.imageFrame : imageView.frame)
         transitionImageView.image = objectData.image
+        transitionImageView.layer.masksToBounds = true
         container.addSubview(transitionImageView)
-        let transitionLabel = UILabel(frame: isPresenting ? objectData.labelFrame : label.frame)
-        transitionLabel.text = objectData.text
-        container.addSubview(transitionLabel)
+        let transitionText = UITextView(frame: isPresenting ? objectData.textFrame : textView.frame)
+        transitionText.backgroundColor = .clear
+        transitionText.text = objectData.text
+        container.addSubview(transitionText)
         
         toView.frame = isPresenting ? CGRect(x: fromView.frame.width,
                                              y: 0,
@@ -91,22 +93,23 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         detailView.frame = self.isPresenting ? fromView.frame : toView.frame
         UIView.animate(withDuration: duration, animations: {
             transitionImageView.frame = self.isPresenting ? imageView.frame : self.objectData.imageFrame
-            transitionLabel.frame = self.isPresenting ? label.frame : self.objectData.labelFrame
-            transitionLabel.font = self.isPresenting ? UIFont.boldSystemFont(ofSize: 22) : UIFont.systemFont(ofSize: 13)
+            transitionImageView.layer.cornerRadius = self.isPresenting ? 0 : 10
+            transitionText.frame = self.isPresenting ? textView.frame : self.objectData.textFrame
+            self.isPresenting ? transitionText.adjustFontForDetailView() : transitionText.adjustFontForListView()
             detailView.alpha = self.isPresenting ? 1 : 0
             // whiteViewが遷移後画面で悪さをする問題の対応
             if self.isPresenting {
                 whiteViewForImage.alpha = 0.3
-                whiteViewForLabel.alpha = 0.3
+                whiteViewForText.alpha = 0.3
             }
         }, completion: { finished in
             imageView.alpha = 1
-            label.alpha = 1
+            textView.alpha = 1
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             whiteViewForImage.removeFromSuperview()
-            whiteViewForLabel.removeFromSuperview()
+            whiteViewForText.removeFromSuperview()
             transitionImageView.removeFromSuperview()
-            transitionLabel.removeFromSuperview()
+            transitionText.removeFromSuperview()
         })
     }
 }

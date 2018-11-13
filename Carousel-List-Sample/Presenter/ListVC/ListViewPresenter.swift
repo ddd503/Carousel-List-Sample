@@ -33,10 +33,10 @@ final class ListViewPresenter: BaseInterface {
     
     func didTapCell(_ carouCell: CarouCell, restIndex: Int, shopIndex: Int, parentView: UIView?) {
         let imageFrame = carouCell.convert(carouCell.shopImageView.frame, to: parentView)
-        let labelFrame = carouCell.convert(carouCell.shopNameLabel.frame, to: parentView)
+        let textFrame = carouCell.convert(carouCell.shopNameTextView.frame, to: parentView)
         tappedObjectData = TappedObjectData(imageFrame: imageFrame,
-                                            labelFrame: labelFrame,
-                                            image: carouCell.shopImageView.image, text: carouCell.shopNameLabel.text)
+                                            textFrame: textFrame,
+                                            image: carouCell.shopImageView.image, text: carouCell.shopNameTextView.text)
         interface?.transitionDetailVC(shopData: rests[restIndex].shops[shopIndex])
     }
     

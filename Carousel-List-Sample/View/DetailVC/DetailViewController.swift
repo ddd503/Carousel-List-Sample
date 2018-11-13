@@ -11,10 +11,14 @@ import UIKit
 final class DetailViewController: UIViewController, TransitionType {
     
     @IBOutlet weak var shopImageView: UIImageView!
-    @IBOutlet weak var shopNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var telLabel: UILabel!
     @IBOutlet weak var budgetLabel: UILabel!
+    @IBOutlet weak var shopNameTextView: UITextView! {
+        didSet {
+            shopNameTextView.adjustFontForDetailView()
+        }
+    }
     @IBOutlet weak var closeButton: UIButton! {
         didSet {
             closeButton.layer.masksToBounds = true

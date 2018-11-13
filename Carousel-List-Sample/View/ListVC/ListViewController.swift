@@ -10,12 +10,12 @@ import UIKit
 
 final class ListViewController: UIViewController {
     
-    @IBOutlet weak var listView: UITableView! {
+    @IBOutlet weak var listView: UITableView! { 
         didSet {
             listView.delegate = self
             listView.dataSource = self
             listView.register(ListViewCell.nib(), forCellReuseIdentifier: ListViewCell.identifier)
-            listView.tableFooterView = UIView()
+            listView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 30))
         }
     }
     

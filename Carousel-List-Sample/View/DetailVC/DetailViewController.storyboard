@@ -21,14 +21,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5eL-ok-Xt3">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAf-jL-ZwG">
-                                <rect key="frame" x="19" y="343.5" width="337.5" height="26.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TEu-Mo-vin">
-                                <rect key="frame" x="19" y="385" width="337.5" height="160"/>
+                                <rect key="frame" x="24" y="376.5" width="337.5" height="160"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Is9-r9-9k9">
                                         <rect key="frame" x="0.0" y="0.0" width="65" height="48"/>
@@ -98,20 +92,26 @@
                                     <action selector="close:" destination="cRX-z3-eSc" eventType="touchUpInside" id="vKT-rW-eag"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96f-b0-ZAp">
+                                <rect key="frame" x="19" y="343.5" width="337.5" height="33"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="l1h-uf-K3a" firstAttribute="centerX" secondItem="Tgj-o3-M3u" secondAttribute="centerX" id="20G-If-OFG"/>
+                            <constraint firstItem="96f-b0-ZAp" firstAttribute="width" secondItem="Tgj-o3-M3u" secondAttribute="width" multiplier="0.9" id="2CG-dA-UYK"/>
+                            <constraint firstItem="96f-b0-ZAp" firstAttribute="top" secondItem="5eL-ok-Xt3" secondAttribute="bottom" constant="10" id="IgL-Z9-iW5"/>
                             <constraint firstItem="5eL-ok-Xt3" firstAttribute="centerX" secondItem="Tgj-o3-M3u" secondAttribute="centerX" id="JAO-Zr-3Gm"/>
+                            <constraint firstItem="96f-b0-ZAp" firstAttribute="centerX" secondItem="9XP-6U-IRR" secondAttribute="centerX" id="KgW-Rj-bdt"/>
                             <constraint firstItem="l1h-uf-K3a" firstAttribute="centerY" secondItem="Tgj-o3-M3u" secondAttribute="centerY" multiplier="1.8" id="PEk-Rg-uba"/>
-                            <constraint firstItem="TEu-Mo-vin" firstAttribute="top" secondItem="JAf-jL-ZwG" secondAttribute="bottom" constant="15" id="SFv-HL-laK"/>
                             <constraint firstItem="5eL-ok-Xt3" firstAttribute="width" secondItem="Tgj-o3-M3u" secondAttribute="width" id="TQV-SV-haz"/>
-                            <constraint firstItem="TEu-Mo-vin" firstAttribute="centerX" secondItem="Tgj-o3-M3u" secondAttribute="centerX" id="Tzk-5A-LYB"/>
+                            <constraint firstItem="TEu-Mo-vin" firstAttribute="centerX" secondItem="Tgj-o3-M3u" secondAttribute="centerX" constant="5" id="Tzk-5A-LYB"/>
+                            <constraint firstItem="TEu-Mo-vin" firstAttribute="top" secondItem="96f-b0-ZAp" secondAttribute="bottom" id="bde-pe-boa"/>
                             <constraint firstItem="5eL-ok-Xt3" firstAttribute="height" secondItem="Tgj-o3-M3u" secondAttribute="height" multiplier="0.5" id="eJ8-gd-UOz"/>
-                            <constraint firstItem="JAf-jL-ZwG" firstAttribute="top" secondItem="5eL-ok-Xt3" secondAttribute="bottom" constant="10" id="hfG-NH-e3k"/>
-                            <constraint firstItem="JAf-jL-ZwG" firstAttribute="width" secondItem="Tgj-o3-M3u" secondAttribute="width" multiplier="0.9" id="nBX-vQ-wUm"/>
                             <constraint firstItem="TEu-Mo-vin" firstAttribute="width" secondItem="Tgj-o3-M3u" secondAttribute="width" multiplier="0.9" id="qth-OV-CrJ"/>
-                            <constraint firstItem="JAf-jL-ZwG" firstAttribute="centerX" secondItem="Tgj-o3-M3u" secondAttribute="centerX" id="sH2-2v-sn7"/>
                             <constraint firstItem="5eL-ok-Xt3" firstAttribute="top" secondItem="Tgj-o3-M3u" secondAttribute="top" id="zQg-LE-40d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9XP-6U-IRR"/>
@@ -121,7 +121,7 @@
                         <outlet property="budgetLabel" destination="JNV-Qh-nKF" id="0Cf-ye-KK3"/>
                         <outlet property="closeButton" destination="l1h-uf-K3a" id="g2I-cs-7et"/>
                         <outlet property="shopImageView" destination="5eL-ok-Xt3" id="b6C-bA-YNS"/>
-                        <outlet property="shopNameLabel" destination="JAf-jL-ZwG" id="zyq-5K-b6T"/>
+                        <outlet property="shopNameTextView" destination="96f-b0-ZAp" id="Zz6-BR-zzL"/>
                         <outlet property="telLabel" destination="71S-UI-8bL" id="XWk-8U-FRc"/>
                     </connections>
                 </viewController>

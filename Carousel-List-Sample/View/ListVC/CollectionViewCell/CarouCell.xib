@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="210" height="255"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ATY-3n-jcf">
-                                <rect key="frame" x="0.0" y="0.0" width="210" height="204"/>
+                                <rect key="frame" x="0.0" y="0.0" width="210" height="191.5"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -32,14 +32,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="NNi-hq-HV3">
-                                <rect key="frame" x="5" y="204" width="200" height="51"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cD-TK-fJi">
-                                <rect key="frame" x="0.0" y="0.0" width="210" height="204"/>
+                                <rect key="frame" x="0.0" y="0.0" width="210" height="191.5"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -48,20 +42,26 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6K-mt-Vy9">
+                                <rect key="frame" x="0.0" y="191.5" width="210" height="63.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="g6K-mt-Vy9" firstAttribute="top" secondItem="ATY-3n-jcf" secondAttribute="bottom" id="6pA-dT-Vf3"/>
                             <constraint firstItem="3cD-TK-fJi" firstAttribute="centerX" secondItem="ATY-3n-jcf" secondAttribute="centerX" id="6u6-Wl-MkS"/>
-                            <constraint firstAttribute="bottom" secondItem="NNi-hq-HV3" secondAttribute="bottom" id="7Kl-Y6-W6n"/>
+                            <constraint firstAttribute="bottom" secondItem="g6K-mt-Vy9" secondAttribute="bottom" id="9Mf-cS-eMv"/>
                             <constraint firstItem="ATY-3n-jcf" firstAttribute="centerX" secondItem="y3N-Zg-4sz" secondAttribute="centerX" id="DkD-l9-DVF"/>
-                            <constraint firstItem="NNi-hq-HV3" firstAttribute="top" secondItem="ATY-3n-jcf" secondAttribute="bottom" id="Dlv-ZD-rlK"/>
                             <constraint firstItem="ATY-3n-jcf" firstAttribute="top" secondItem="y3N-Zg-4sz" secondAttribute="top" id="HJy-BG-Eoa"/>
                             <constraint firstItem="3cD-TK-fJi" firstAttribute="height" secondItem="ATY-3n-jcf" secondAttribute="height" id="ITd-aX-kev"/>
                             <constraint firstItem="3cD-TK-fJi" firstAttribute="width" secondItem="ATY-3n-jcf" secondAttribute="width" id="JS6-Cy-G2F"/>
-                            <constraint firstAttribute="trailing" secondItem="NNi-hq-HV3" secondAttribute="trailing" constant="5" id="aeN-Et-Mw6"/>
-                            <constraint firstItem="ATY-3n-jcf" firstAttribute="height" secondItem="y3N-Zg-4sz" secondAttribute="height" multiplier="0.8" id="szg-j1-hPl"/>
+                            <constraint firstAttribute="trailing" secondItem="g6K-mt-Vy9" secondAttribute="trailing" id="Y1k-2g-Ej4"/>
+                            <constraint firstItem="g6K-mt-Vy9" firstAttribute="leading" secondItem="y3N-Zg-4sz" secondAttribute="leading" id="eq3-oB-U5n"/>
+                            <constraint firstItem="ATY-3n-jcf" firstAttribute="height" secondItem="y3N-Zg-4sz" secondAttribute="height" multiplier="0.75" id="szg-j1-hPl"/>
                             <constraint firstItem="ATY-3n-jcf" firstAttribute="width" secondItem="y3N-Zg-4sz" secondAttribute="width" id="wKx-ok-rdG"/>
-                            <constraint firstItem="NNi-hq-HV3" firstAttribute="leading" secondItem="y3N-Zg-4sz" secondAttribute="leading" constant="5" id="xPR-Sg-g8n"/>
                             <constraint firstItem="3cD-TK-fJi" firstAttribute="centerY" secondItem="ATY-3n-jcf" secondAttribute="centerY" id="zhV-tf-TTL"/>
                         </constraints>
                     </view>
@@ -77,7 +77,7 @@
             <size key="customSize" width="210" height="255"/>
             <connections>
                 <outlet property="shopImageView" destination="ATY-3n-jcf" id="7Md-EH-VN9"/>
-                <outlet property="shopNameLabel" destination="NNi-hq-HV3" id="aZi-5g-6Ju"/>
+                <outlet property="shopNameTextView" destination="g6K-mt-Vy9" id="eXN-MA-Zg1"/>
                 <outlet property="tappedView" destination="3cD-TK-fJi" id="zNx-Ly-Rlb"/>
             </connections>
             <point key="canvasLocation" x="105.59999999999999" y="239.73013493253376"/>
