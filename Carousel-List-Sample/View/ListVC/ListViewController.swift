@@ -23,6 +23,7 @@ final class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.tableViewCellHeight = view.bounds.height / 3.5
         presenter.requestDatasource()
     }   
     
@@ -65,7 +66,7 @@ extension ListViewController: UITableViewDataSource {
 extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.bounds.height / 3.5
+        return presenter.tableViewCellHeight
     }
     
 }
@@ -90,13 +91,18 @@ extension ListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.height / 4 * 2.3 , height: collectionView.bounds.height)
+        if let size = presenter.collectionViewCellSize {
+            return size
+        } else {
+            let size = CGSize(width: collectionView.bounds.height / 4 * 2.3 , height: collectionView.bounds.height)
+            presenter.collectionViewCellSize = size
+            return size
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        let verticalInset: CGFloat = 10
-        return UIEdgeInsets(top: 0, left: verticalInset, bottom: 0, right: verticalInset)
+        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

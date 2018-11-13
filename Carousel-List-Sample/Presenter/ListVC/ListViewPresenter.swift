@@ -20,6 +20,8 @@ final class ListViewPresenter: BaseInterface {
     let datasource = ListViewDatasource()
     var rests = [Rest]()
     var tappedObjectData: TappedObjectData?
+    var tableViewCellHeight: CGFloat = 0
+    var collectionViewCellSize: CGSize?
     
     deinit {
         destroyInterface()
