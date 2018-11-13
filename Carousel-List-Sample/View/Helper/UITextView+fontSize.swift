@@ -26,7 +26,7 @@ extension UITextView {
             self.font = UIFont.systemFont(ofSize: 17)
         }
     }
-    /// 画面縦幅に合わせてフォントサイズを変更する(ListView用)
+    /// 画面縦幅に合わせてフォントサイズを変更する(DetailView用)
     func adjustFontForDetailView() {
         switch Double(UIScreen.main.bounds.size.height) {
         case (let height) where height <= 568.0: // 5S系

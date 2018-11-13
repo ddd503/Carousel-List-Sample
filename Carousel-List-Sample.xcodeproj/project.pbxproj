@@ -12,7 +12,6 @@
 		456337872191D0CD00E23C4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337862191D0CD00E23C4C /* AppDelegate.swift */; };
 		4563378E2191D0CF00E23C4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4563378D2191D0CF00E23C4C /* Assets.xcassets */; };
 		456337912191D0CF00E23C4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4563378F2191D0CF00E23C4C /* LaunchScreen.storyboard */; };
-		456337AC2191D31300E23C4C /* rest.json in Resources */ = {isa = PBXBuildFile; fileRef = 456337AB2191D31300E23C4C /* rest.json */; };
 		456337B32191E52700E23C4C /* ViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337B22191E52700E23C4C /* ViewControllerBuilder.swift */; };
 		456337B52191E57400E23C4C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337B42191E57400E23C4C /* ListViewController.swift */; };
 		456337B72191E57C00E23C4C /* ListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 456337B62191E57C00E23C4C /* ListViewController.storyboard */; };
@@ -30,6 +29,7 @@
 		456337D5219491FE00E23C4C /* CarouCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337D3219491FE00E23C4C /* CarouCell.swift */; };
 		456337D6219491FE00E23C4C /* CarouCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456337D4219491FE00E23C4C /* CarouCell.xib */; };
 		45FC361E219B28680016B81B /* UITextView+fontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC361D219B28680016B81B /* UITextView+fontSize.swift */; };
+		45FC3620219B42480016B81B /* rest01.json in Resources */ = {isa = PBXBuildFile; fileRef = 45FC361F219B42480016B81B /* rest01.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,6 @@
 		456337922191D0CF00E23C4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		456337972191D0CF00E23C4C /* Carousel-List-SampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Carousel-List-SampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4563379D2191D0CF00E23C4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		456337AB2191D31300E23C4C /* rest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rest.json; sourceTree = "<group>"; };
 		456337B22191E52700E23C4C /* ViewControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBuilder.swift; sourceTree = "<group>"; };
 		456337B42191E57400E23C4C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		456337B62191E57C00E23C4C /* ListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListViewController.storyboard; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		456337D3219491FE00E23C4C /* CarouCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouCell.swift; sourceTree = "<group>"; };
 		456337D4219491FE00E23C4C /* CarouCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouCell.xib; sourceTree = "<group>"; };
 		45FC361D219B28680016B81B /* UITextView+fontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+fontSize.swift"; sourceTree = "<group>"; };
+		45FC361F219B42480016B81B /* rest01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rest01.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +161,7 @@
 		456337A72191D1F900E23C4C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				456337AB2191D31300E23C4C /* rest.json */,
+				45FC361F219B42480016B81B /* rest01.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -368,10 +368,10 @@
 			files = (
 				456337912191D0CF00E23C4C /* LaunchScreen.storyboard in Resources */,
 				4563378E2191D0CF00E23C4C /* Assets.xcassets in Resources */,
+				45FC3620219B42480016B81B /* rest01.json in Resources */,
 				456337D22194914000E23C4C /* ListViewCell.xib in Resources */,
 				456337D6219491FE00E23C4C /* CarouCell.xib in Resources */,
 				456337B92191E59700E23C4C /* DetailViewController.storyboard in Resources */,
-				456337AC2191D31300E23C4C /* rest.json in Resources */,
 				456337B72191E57C00E23C4C /* ListViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

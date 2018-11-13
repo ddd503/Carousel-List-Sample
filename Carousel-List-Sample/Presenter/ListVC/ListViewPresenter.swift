@@ -28,7 +28,7 @@ final class ListViewPresenter: BaseInterface {
     }
     
     func requestDatasource() {
-        datasource.getDatasource(localFileName: "rest")
+        datasource.getDatasource(localFileName: "rest01")
     }
     
     func didTapCell(_ carouCell: CarouCell, restIndex: Int, shopIndex: Int, parentView: UIView?) {
