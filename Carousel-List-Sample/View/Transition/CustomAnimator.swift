@@ -79,6 +79,9 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         transitionImageView.layer.masksToBounds = true
         container.addSubview(transitionImageView)
         let transitionText = UITextView(frame: isPresenting ? objectData.textFrame : textView.frame)
+        let listViewTextFont = UIFont.systemFont(ofSize: FontSizeHelper.listViewFontSize())
+        let detailViewTextFont = UIFont.boldSystemFont(ofSize: FontSizeHelper.detailViewFontSize())
+        transitionText.font = isPresenting ? listViewTextFont : detailViewTextFont
         transitionText.backgroundColor = .clear
         transitionText.text = objectData.text
         container.addSubview(transitionText)
@@ -95,7 +98,7 @@ final class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             transitionImageView.frame = self.isPresenting ? imageView.frame : self.objectData.imageFrame
             transitionImageView.layer.cornerRadius = self.isPresenting ? 0 : 10
             transitionText.frame = self.isPresenting ? textView.frame : self.objectData.textFrame
-            self.isPresenting ? transitionText.adjustFontForDetailView() : transitionText.adjustFontForListView()
+            transitionText.font = self.isPresenting ? detailViewTextFont : listViewTextFont
             detailView.alpha = self.isPresenting ? 1 : 0
             // whiteViewが遷移後画面で悪さをする問題の対応
             if self.isPresenting {

@@ -16,7 +16,7 @@ final class DetailViewController: UIViewController, TransitionType {
     @IBOutlet weak var budgetLabel: UILabel!
     @IBOutlet weak var shopNameTextView: UITextView! {
         didSet {
-            shopNameTextView.adjustFontForDetailView()
+            shopNameTextView.font = UIFont.boldSystemFont(ofSize: FontSizeHelper.detailViewFontSize())
         }
     }
     @IBOutlet weak var closeButton: UIButton! {

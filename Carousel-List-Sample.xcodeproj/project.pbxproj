@@ -28,7 +28,7 @@
 		456337D22194914000E23C4C /* ListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456337D02194914000E23C4C /* ListViewCell.xib */; };
 		456337D5219491FE00E23C4C /* CarouCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456337D3219491FE00E23C4C /* CarouCell.swift */; };
 		456337D6219491FE00E23C4C /* CarouCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456337D4219491FE00E23C4C /* CarouCell.xib */; };
-		45FC361E219B28680016B81B /* UITextView+fontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC361D219B28680016B81B /* UITextView+fontSize.swift */; };
+		45711D7A219C3CC700ACE75F /* FontSizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45711D79219C3CC700ACE75F /* FontSizeHelper.swift */; };
 		45FC3620219B42480016B81B /* rest01.json in Resources */ = {isa = PBXBuildFile; fileRef = 45FC361F219B42480016B81B /* rest01.json */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +68,7 @@
 		456337D02194914000E23C4C /* ListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewCell.xib; sourceTree = "<group>"; };
 		456337D3219491FE00E23C4C /* CarouCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouCell.swift; sourceTree = "<group>"; };
 		456337D4219491FE00E23C4C /* CarouCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouCell.xib; sourceTree = "<group>"; };
-		45FC361D219B28680016B81B /* UITextView+fontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+fontSize.swift"; sourceTree = "<group>"; };
+		45711D79219C3CC700ACE75F /* FontSizeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeHelper.swift; sourceTree = "<group>"; };
 		45FC361F219B42480016B81B /* rest01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rest01.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -261,7 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				456337CB2193469000E23C4C /* AlertHelper.swift */,
-				45FC361D219B28680016B81B /* UITextView+fontSize.swift */,
+				45711D79219C3CC700ACE75F /* FontSizeHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -412,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				456337D12194914000E23C4C /* ListViewCell.swift in Sources */,
+				45711D7A219C3CC700ACE75F /* FontSizeHelper.swift in Sources */,
 				456337B32191E52700E23C4C /* ViewControllerBuilder.swift in Sources */,
 				456337BD2191E6A600E23C4C /* BaseInterface.swift in Sources */,
 				456337872191D0CD00E23C4C /* AppDelegate.swift in Sources */,
@@ -420,7 +421,6 @@
 				456337B52191E57400E23C4C /* ListViewController.swift in Sources */,
 				456337C52191E7D400E23C4C /* ListViewDatasource.swift in Sources */,
 				456337D5219491FE00E23C4C /* CarouCell.swift in Sources */,
-				45FC361E219B28680016B81B /* UITextView+fontSize.swift in Sources */,
 				456337BB2191E5A200E23C4C /* DetailViewController.swift in Sources */,
 				456337CC2193469000E23C4C /* AlertHelper.swift in Sources */,
 				456337C12191E6E100E23C4C /* DetailViewPresenter.swift in Sources */,

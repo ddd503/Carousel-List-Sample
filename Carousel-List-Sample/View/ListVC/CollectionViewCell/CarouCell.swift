@@ -15,7 +15,7 @@ final class CarouCell: UICollectionViewCell {
     @IBOutlet weak var tappedView: UIView!
     @IBOutlet weak var shopNameTextView: UITextView! {
         didSet {
-            shopNameTextView.adjustFontForListView()
+            shopNameTextView.font = UIFont.systemFont(ofSize: FontSizeHelper.listViewFontSize())
             shopNameTextView.textContainer.maximumNumberOfLines = 2
             shopNameTextView.textContainerInset = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 0)
             shopNameTextView.textContainer.lineBreakMode = .byTruncatingTail

@@ -1,46 +1,50 @@
 //
-//  UITextView+fontSize.swift
+//  FontSizeHelper.swift
 //  Carousel-List-Sample
 //
 //  Created by kawaharadai on 2018/11/14.
 //  Copyright © 2018 kawaharadai. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-extension UITextView {
+final class FontSizeHelper {
+    
     /// 画面縦幅に合わせてフォントサイズを変更する(ListView用)
-    func adjustFontForListView() {
+    static func listViewFontSize() -> CGFloat {
         switch Double(UIScreen.main.bounds.size.height) {
         case (let height) where height <= 568.0: // 5S系
-            self.font = UIFont.systemFont(ofSize: 10)
+            return 10
         case (let height) where height <= 667.0: // 6系
-            self.font = UIFont.systemFont(ofSize: 12)
+            return 12
         case (let height) where height <= 736.0: // 6Puls系
-            self.font = UIFont.systemFont(ofSize: 13)
+            return 13
         case (let height) where height <= 812.0: // X系
-            self.font = UIFont.systemFont(ofSize: 15)
+            return 15
         case (let height) where height <= 896.0: // XMax系
-            self.font = UIFont.systemFont(ofSize: 17)
+            return 17
         default:
-            self.font = UIFont.systemFont(ofSize: 17)
+            return 17
         }
     }
+    
     /// 画面縦幅に合わせてフォントサイズを変更する(DetailView用)
-    func adjustFontForDetailView() {
+    static func detailViewFontSize() -> CGFloat {
         switch Double(UIScreen.main.bounds.size.height) {
         case (let height) where height <= 568.0: // 5S系
-            self.font = UIFont.boldSystemFont(ofSize: 18)
+            return 18
         case (let height) where height <= 667.0: // 6系
-            self.font = UIFont.boldSystemFont(ofSize: 20)
+            return 20
         case (let height) where height <= 736.0: // 6Puls系
-            self.font = UIFont.boldSystemFont(ofSize: 21)
+            return 21
         case (let height) where height <= 812.0: // X系
-            self.font = UIFont.boldSystemFont(ofSize: 23)
+            return 23
         case (let height) where height <= 896.0: // XMax系
-            self.font = UIFont.boldSystemFont(ofSize: 23)
+            return 23
         default:
-            self.font = UIFont.systemFont(ofSize: 23)
+            return 23
         }
     }
+    
 }
