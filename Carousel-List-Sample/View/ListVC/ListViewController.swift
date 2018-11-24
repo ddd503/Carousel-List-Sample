@@ -57,7 +57,7 @@ extension ListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListViewCell.identifier, for: indexPath) as? ListViewCell else {
             fatalError("cell is nil")
         }
-        cell.setViewData(datasource: self, categoryTitle: presenter.rests[indexPath.row].title, tag: indexPath.row)
+        cell.setViewData(datasource: self, categoryTitle: presenter.rests[indexPath.row].title, tag: indexPath.row, currentOffsetX: presenter.collectionViewCurentOffsetXArray[indexPath.row])
         return cell
     }
     
@@ -67,6 +67,10 @@ extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return presenter.tableViewCellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        presenter.collectionViewCurentOffsetXArray[indexPath.row] = (cell as? ListViewCell)?.carouselListView.contentOffset.x
     }
     
 }

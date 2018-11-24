@@ -22,6 +22,7 @@ final class ListViewPresenter: BaseInterface {
     var tappedObjectData: TappedObjectData?
     var tableViewCellHeight: CGFloat = 0
     var collectionViewCellSize: CGSize?
+    var collectionViewCurentOffsetXArray = [CGFloat?]()
     
     deinit {
         destroyInterface()
@@ -46,6 +47,10 @@ extension ListViewPresenter: ListViewDatasourceInterface {
     
     func receivedRests(_ rests: [Rest]) {
         self.rests = rests
+        // offset格納用の部屋を用意
+        self.rests.forEach { _ in
+            collectionViewCurentOffsetXArray.append(nil)
+        }
         interface?.reload()
     }
     
