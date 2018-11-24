@@ -21,13 +21,6 @@ final class ListViewCell: UITableViewCell {
         return UINib(nibName: identifier, bundle: nil)
     }
     
-//    var collectonViewOffsetX: CGFloat?
-//
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        carouselListView.contentOffset.x = collectonViewOffsetX ?? 0
-//    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         carouselListView.register(CarouCell.nib(), forCellWithReuseIdentifier: CarouCell.identifier)
