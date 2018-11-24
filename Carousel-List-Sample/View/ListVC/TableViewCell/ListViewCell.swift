@@ -28,12 +28,12 @@ final class ListViewCell: UITableViewCell {
     }
     
     func setViewData(datasource:
-        UICollectionViewDelegate & UICollectionViewDataSource, categoryTitle: String, tag: Int, currentOffsetX: CGFloat?) {
+        UICollectionViewDelegate & UICollectionViewDataSource, categoryTitle: String, tag: Int, currentOffsetX: CGFloat) {
         carouselListView.delegate = datasource
         carouselListView.dataSource = datasource
         categoryLabel.text = categoryTitle
         carouselListView.tag = tag
-        carouselListView.contentOffset.x = currentOffsetX ?? 0
+        carouselListView.contentOffset.x = currentOffsetX
         carouselListView.reloadData()
     }
     

@@ -57,7 +57,10 @@ extension ListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListViewCell.identifier, for: indexPath) as? ListViewCell else {
             fatalError("cell is nil")
         }
-        cell.setViewData(datasource: self, categoryTitle: presenter.rests[indexPath.row].title, tag: indexPath.row, currentOffsetX: presenter.collectionViewCurentOffsetXArray[indexPath.row])
+        cell.setViewData(datasource: self,
+                         categoryTitle: presenter.rests[indexPath.row].title,
+                         tag: indexPath.row,
+                         currentOffsetX: CGFloat(truncating: presenter.collectionViewCurrentOffsetXDic["\(indexPath.row)"] ?? 0))
         return cell
     }
     
@@ -70,7 +73,8 @@ extension ListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        presenter.collectionViewCurentOffsetXArray[indexPath.row] = (cell as? ListViewCell)?.carouselListView.contentOffset.x
+        // CollectionViewのtag(indexPath.row)をkeyにOffset.xを保存する
+        presenter.collectionViewCurrentOffsetXDic["\(indexPath.row)"] = NSNumber(value: Float((cell as? ListViewCell)?.carouselListView.contentOffset.x ?? 0))
     }
     
 }
